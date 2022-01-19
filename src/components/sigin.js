@@ -1,3 +1,5 @@
+
+
 const Sigin = {
     render() {
         return `
@@ -57,6 +59,7 @@ const Sigin = {
     </form>
   </div>
 </div>
+
         `;
     },
 };

@@ -7,7 +7,7 @@ const NewsList = {
                 <div class="grid grid-cols-3 gap-8">
                     ${data.map((post) => `
                         <div class="border p-4">
-                            <a href="">
+                            <a href="/Detail">
                                 <img src="${post.img}" alt="" />
                             </a>
                             <h3 class="my-3"><a href="" class="font-semibold text-lg text-orange-500">${post.title}</a></h3>                    

@@ -18,7 +18,7 @@ const addProduct = {
                     Quản lý bài viết ----------- Thêm sản phẩm -----------
                     </h2>
                 </div>
-
+    
                 </div>
             </div>
             </header>
@@ -29,66 +29,45 @@ const addProduct = {
                 <div
                     class="border-4 border-dashed border-gray-200 rounded-lg h-96">
             
-
-                    <style>
-
-                    table, th, td {  
-                        border-bottom: 1px solid black;  
-                        border-collapse: collapse;  
-                    }  
-                    td,input {  
-                        padding:  10px; 
-                    
-                    </style>
-
-
-                    <table>
-                    <tr>
-                      <td><label class="form-label">Id</label></td>
-                      <td><input type="text" id="id"></td>
-                    </tr>
-              
-                    <tr>
-                      <td><label class="form-label">title</label></td>
-                      <td><input type="text" id="title"></td>
-                    </tr>
-              
-                    <tr>
-                      <td><label class="form-label">img</label></td>
-                      <td><input type="file" id="img"></td>
-                    </tr>
-              
-                    <tr>
-                      <td><label class="form-label">createdAt</label></td>
-                      <td><input type="text" id="createdAt"></td>
-                    </tr>
-
-                    <tr>
-                    <td> <button onclick="addData()" id="addbtn"> <div class="d-inline p-2 bg-black text-white">  Add </div>  </button> </td>
-                    </tr>
-                  </table>  
-
-
-
-                `
-                var data = [];
-                function addData() {
-                  var id = document.getElementById('id').value;
-                  var title = document.getElementById('title').value;
+                    <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-md w-full space-y-8">
                   
-
-                  var item = {
-                      id : id,
-                      title : title
-                  };
-                  this.data.push(item);
-                  console.log(item);
-  
-              };
-                `;
-
-
-
+                      <form class="mt-8 space-y-6" action="#" method="POST">
+                        <input type="hidden" name="remember" value="true">
+                        <div class="rounded-md shadow-sm -space-y-px">
+                          <div>
+                            <label for="email-address" class="sr-only">Email address</label>
+                            <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="desc">
+                          </div>
+                          <div>
+                            <label for="password" class="sr-only">Password</label>
+                            <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="image">
+                          </div>
+                          <div>
+                            <label for="password" class="sr-only">Password</label>
+                            <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="title">
+                          </div>
+                          <div>
+                            <label for="password" class="sr-only">Password</label>
+                            <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="createdAt">
+                          </div>
+                        </div>
+                  
+                  
+                        <div>
+                          <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                            </span>
+                            Update
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+    
+    
+    
+    
                 </div>
                 </div>
                 <!-- /End replace -->

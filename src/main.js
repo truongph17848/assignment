@@ -6,6 +6,8 @@ import Sigup from "./components/sigup";
 import dashboard from "./admin/dashboard";
 import listNewsPage from "./admin/news/list";
 import addProduct from "./admin/news/add";
+import Edit from "./admin/news/edit";
+import Detail from "./pages/Detail";
 
 
 
@@ -29,6 +31,10 @@ router.on({
         print(Sigin.render());
     },
 
+    "/Detail": () => {
+        print(Detail.render())
+    },
+
 
     
     "/admin/dashboard": () => {
@@ -44,7 +50,7 @@ router.on({
     },
 
     "/admin/news/:id/edit": () => {
-        
+        print(Edit.render())
     },
 
 

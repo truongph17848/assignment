@@ -13,8 +13,8 @@ const Header = {
                 <li><a href="/about" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">About</a></li>
                 <li><a href="/product" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Product</a></li>
                 <li><a href="/contact" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Contact</a></li>
-                <li><a href="/Sigup" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Sigup</a></li>
-                <li><a href="/Sigin" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Sigin</a></li>
+                <li><a href="/sigup" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Sigup</a></li>
+                <li><a href="/sigin" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Sigin</a></li>
                 <li><a href="/admin/dashboard" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Dashboard</a></li>
             </ul>
             </div>
