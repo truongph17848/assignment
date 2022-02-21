@@ -1,12 +1,12 @@
 import NavAdmin from "../../components/NavAdmin";
-import { get } from "../../../api/posts";
-import { update } from "../../../api/posts";
+import { get } from "../../../api/product";
+import { update } from "../../../api/product";
 import axios from "axios";
 
-const Edit = {
-  async render(id) {
-    const { data } = await get(id);
-    return `
+const EditProducts = {
+    async render(id) {
+        const { data } = await get(id);
+        return `
         ${NavAdmin.render()}    
         <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -16,7 +16,7 @@ const Edit = {
                 <h2
                 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"
                 >
-                Quản lý bài viết ----------- Edit sản phẩm -----------
+                Quản lý bài viết ----------- Edit Products -----------
                 </h2>
             </div>
 
@@ -37,7 +37,7 @@ const Edit = {
 
 
 
-                <form class="mt-8 space-y-6" action="" id="form-edit-post">
+                <form class="mt-8 space-y-6" action="" id="form-editProducts-post">
 
                 <div class="rounded-md shadow-sm -space-y-px">
                   <div>
@@ -48,8 +48,8 @@ const Edit = {
             
                   <div>
                     <label for="title" class="sr-only">title</label>
-                    <input id="title-post" value="${data.title}"
-                    class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" >
+                    <input id="title-post" value="${data.name}"
+                    class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="title">
                   </div>
             
                   <div>
@@ -59,8 +59,8 @@ const Edit = {
             
                   <div>
                     <label for="desc" class="sr-only">desc</label>
-                    <input id="desc-post" value="${data.desc}"
-                    class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" >
+                    <input id="desc-post" value="${data.price}"
+                    class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="desc">
                   </div>
             
                 </div>
@@ -90,47 +90,47 @@ const Edit = {
 
 
         `;
-  },
+    },
 
-  afterRender(id) {
-    console.log(id);
-    const formEdit = document.querySelector('#form-edit-post');
-    console.log(formEdit);
+    afterRender(id) {
+        console.log(id);
+        const formEdit = document.querySelector('#form-editProducts-post');
+        console.log(formEdit);
 
-    const imgPost = document.querySelector("#img-post");
-    imgPost.addEventListener("change", (e) => {
-      e.preventDefault();
-      const file = e.target.file[0];
-      const formData = new formData();
-      formData.append("file", file);
-      formData.append("upload_preset", "vhwqxt4l");
+        const imgPost = document.querySelector("#img-post");
+        imgPost.addEventListener("change", (e) => {
+            e.preventDefault();
+            const file = e.target.file[0];
+            const formData = new formData();
+            formData.append("file", file);
+            formData.append("upload_preset", "vhwqxt4l");
 
-      axios({
-        url: "https://api.cloudinary.com/v1_1/dd6rjgngw/image/upload",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-formendcoded",
-        },
-        data: formData,
-      }).then((res) => {
-        formEdit.addEventListener('submit', (e) => {
-          // thêm e vào và dòng dưới để chặn sự kiện(k load trang)
-          e.preventDefault();
-          update(
-            {
-              id,
-              createdAt: document.querySelector('#createdAt-post').value,
-              title: document.querySelector('#title-post').value,
-              img: res.data.secure_url,
-              desc: document.querySelector('#desc-post').value
+            axios({
+                url: "https://api.cloudinary.com/v1_1/dd6rjgngw/image/upload",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-formendcoded",
+                },
+                data: formData,
+            }).then((res) => {
+                formEdit.addEventListener('submit', (e) => {
+                    // thêm e vào và dòng dưới để chặn sự kiện(k load trang)
+                    e.preventDefault();
+                    update(
+                        {
+                            id,
+                            createdAt: document.querySelector('#createdAt-post').value,
+                            title: document.querySelector('#title-post').value,
+                            img: res.data.secure_url,
+                            desc: document.querySelector('#desc-post').value
 
+                        })
+                        .then((result) => console.log(result.data))
+                        .catch((error) => console.log(error));
+                });
             })
-            .then((result) => console.log(result.data))
-            .catch((error) => console.log(error));
         });
-      })
-    });
-  },
+    },
 
 };
-export default Edit;
+export default EditProducts;

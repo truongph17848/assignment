@@ -5,7 +5,7 @@ import Header from "../components/header";
 const AboutPage = {
     render() {
         return /* html */`
-            <div class="max-w-5xl mx-auto">
+            <div class="">
             ${Header.render()}
 
             <h1 class="text-2xl my-10 font-bold">About Page</h1>

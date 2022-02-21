@@ -1,39 +1,39 @@
-
+import { signup } from "../../api/user";
 import Header from "./header";
 
 const Sigup = {
-    render() {
-        return `
+  render() {
+    return `
         
-
+        
         <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-md w-full space-y-8">
     <div>
-      <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
+
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
         Sign up to your account
       </h2>
 
     </div>
-    <form class="mt-8 space-y-6" action="#" method="POST">
+
+    
+
+
+    <form class="mt-8 space-y-6" id="formSignup">
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
+      <div>
+      <label for="username" class="sr-only">Username</label>
+      <input id="username" name="username " type="fullname" autocomplete="current-Phone" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Username">
+    </div>
         <div>
-          <label for="Name" class="sr-only">Name</label>
-          <input id="Name" name="Name" type="Name" autocomplete="Name" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name">
-        </div>
-        <div>
-        <label for="Email" class="sr-only">Email </label>
-        <input id="Email" name="password" type="Email" autocomplete="Email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email">
+        <label for="email" class="sr-only">Email </label>
+        <input id="email" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="email">
       </div>
         <div>
           <label for="password" class="sr-only">Password</label>
           <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
         </div>
-        <div>
-        <label for="Phone" class="sr-only">Phone</label>
-        <input id="Phone" name="Phone" type="Phone" autocomplete="current-Phone" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Phone">
-      </div>
 
       </div>
 
@@ -60,15 +60,34 @@ const Sigup = {
               <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
             </svg>
           </span>
-          Sign up
+          Đăng ký
         </button>
       </div>
     </form>
+
+
+    
   </div>
 </div>
 
 
+
         `;
-    },
+  },
+
+  afterRender() {
+    const formSignup = document.querySelector("#formSignup");
+    formSignup.addEventListener("submit", (e) => {
+      e.preventDefault();
+      // call api
+      signup({
+        username: document.querySelector("#username").value,
+        email: document.querySelector("#email").value,
+        password: document.querySelector("#password").value,
+      });
+      window.location.href = "/#/";
+      // thông báo bạn đăng nhập thành công....
+    });
+  },
 };
 export default Sigup;

@@ -1,9 +1,9 @@
-import { getAll, remove } from "../../../api/posts";
+import { getAll, remove } from "../../../api/product";
 import NavAdmin from "../../components/NavAdmin";
 import { reRender } from "../../utils";
 import toastr from "toastr";
 
-const listNewsPage = {
+const listProductsPage = {
   async render() {
     const { data } = await getAll();
     return `
@@ -24,7 +24,7 @@ const listNewsPage = {
 
 
             <div class="mt-5 flex lg:mt-0 lg:ml-4">
-                <a href="/admin/news/add" class="sm:ml-3">
+                <a href="/admin/products/addProductNewProduct" class="sm:ml-3">
                     <button
                         type="button"  
                         class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -84,11 +84,11 @@ const listNewsPage = {
                     <tr>
                     <td>${index + 1}</td>
                     <td>${post.createdAt}</td>
-                    <td>${post.title}</td>
+                    <td>${post.name}</td>
                     <td> <img src="${post.img}" width="50" /> </td>
-                    <td>${post.desc}</td>
+                    <td>${post.price}</td>
                     <td>
-                    <button class="text-black-300 hover:bg-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium"> <a href="/admin/news/${post.id}/edit"> Edit </a> </button>
+                    <button class="text-black-300 hover:bg-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium"> <a href="/admin/products/${post.id}/EditProducts"> Edit </a> </button>
                     <button data-id=${post.id} class="btn btn-remove text-black-300 hover:bg-orange-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium"> Remove </button>
                     </td>
                   </tr>
@@ -122,14 +122,14 @@ const listNewsPage = {
       // lick lấy id 
       button.addEventListener('click', () => {
         console.log(id);
-        const confirm = window.confirm(" Xóa nhanh không thì bảo");
+        const confirm = window.confirm(" Bạn có chắc muốn xóa nó không ");
         if (confirm) {
           remove(id).then(() => toastr.success("Bạn đã xóa sản phẩm thành công"));
-          reRender(listNewsPage, "#app");
+          reRender(listProductsPage, "#app");
         }
       })
     });
   }
 };
-export default listNewsPage;
+export default listProductsPage;
 

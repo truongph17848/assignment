@@ -1,0 +1,78 @@
+{
+  "posts": [
+    {
+      "createdAt": "2022-02-21",
+      "title": "Sản Phẩm Mới",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645413963/vhwqxt4l/czybzkqmbnhhnoh6hnuc.jpg",
+      "desc": "1312312",
+      "id": 1
+    },
+    {
+      "createdAt": "2022-02-21",
+      "title": "Sản Phẩm Mới",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645413963/vhwqxt4l/czybzkqmbnhhnoh6hnuc.jpg",
+      "desc": "1312312",
+      "id": 2
+    },
+    {
+      "createdAt": "2022-02-21",
+      "title": "Ok",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645417620/vhwqxt4l/jdkhcm0wr5keldx5ahuv.jpg",
+      "desc": "123",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "createdAt": "ÁO SƠ MI NAM TAY DÀI SP000957 - CARO XANH NHẠT",
+      "name": "product B",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645259189/vhwqxt4l/xtwcupl6bcjfnzayh4jz.jpg",
+      "desc": "ÁO SƠ MI NAM TAY DÀI SP000957 - NÂU",
+      "id": 6,
+      "price": "200"
+    },
+    {
+      "createdAt": "ÁO SƠ MI NAM TAY DÀI SP000957 - CARO XANH NHẠT",
+      "name": "product C",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645259219/vhwqxt4l/yjzfgpdzknbdaxjkegey.jpg",
+      "desc": "ÁO SƠ MI NAM TAY DÀI SP000957 - NÂU",
+      "id": 7,
+      "price": "300"
+    },
+    {
+      "createdAt": "123123",
+      "name": "Ok",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645413759/vhwqxt4l/y81hguvzru08g0qfo59q.jpg",
+      "price": "200",
+      "desc": "213",
+      "id": 8
+    },
+    {
+      "createdAt": "123",
+      "name": "123",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645417493/vhwqxt4l/t4ufjx0wtcbdfdwwnyy3.jpg",
+      "price": "200",
+      "desc": "123",
+      "id": 9
+    }
+  ],
+  "users": [
+    {
+      "email": "123@gmail.com",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "email": "nguyendangtruong57@gmail.com",
+      "password": "$2a$10$x7tEEW/5KCPv38HXhsP6GeqHkfbi616ytPlpMF1UGGuJ1k3eK3c/i",
+      "username": "truong123123",
+      "id": 2
+    },
+    {
+      "email": "truong123123123@gmail.com",
+      "password": "$2a$10$xRU.Yyqfj8LIGmxlDTvOZeDJfhZbWqr8pPsqr.zTz00uXnPbksgcO",
+      "username": "truong123123123",
+      "id": 3
+    }
+  ]
+}

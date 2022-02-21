@@ -5,15 +5,12 @@ import Footer from "../components/footer";
 
 
 const HomePage = {
-    render() {
+    async render() {
         return /* html */`
-            <div class="max-w-5xl mx-auto">
+            <div class="">
             ${Header.render()}
-            <div class="banner">
-                ${Banner.render()}
-            </div>
             <div>
-                ${NewsList.render()}
+                ${await NewsList.render()}
             </div>
             ${Footer.render()}
             </div>

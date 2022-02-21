@@ -1,12 +1,12 @@
 import axios from "axios";
-import { add } from "../../../api/posts";
+import { add } from "../../../api/product";
 import NavAdmin from "../../components/NavAdmin";
 
 
 
-const addProduct = {
-  render() {
-    return `
+const addProductNewProduct = {
+    render() {
+        return `
             <div class="min-h-full">
             ${NavAdmin.render()}
             <header class="bg-white shadow">
@@ -45,8 +45,8 @@ const addProduct = {
                     <div class="rounded-md shadow-sm -space-y-px">
                       <div>
                         <label for="createdAt" class="sr-only"> Tên sản phẩm </label>
-                        <input type="date" id="createdAt-post"
-                        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="createdAt">
+                        <input type="text" id="createdAt-post"
+                        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Tên sản phẩm">
                       </div>
                 
                       <div>
@@ -67,6 +67,14 @@ const addProduct = {
                       </div>
                 
                     </div>
+
+                    <div>
+                    <label for="desc" class="sr-only">price</label>
+                    <input id="price-post"
+                    class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="price">
+                  </div>
+            
+                
                 
                 
                     <div>
@@ -95,50 +103,50 @@ const addProduct = {
         </div>
 
             `;
-  },
-  afterRender() {
+    },
+    afterRender() {
 
-    const formAdd = document.querySelector("#form-add-post");
+        const formAdd = document.querySelector("#form-add-post");
 
-    const imgPost = document.querySelector("#img-post");
+        const imgPost = document.querySelector("#img-post");
 
-    imgPost.addEventListener("change", (e) => {
+        imgPost.addEventListener("change", (e) => {
 
-      const file = e.target.files[0];
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", "vhwqxt4l");
+            const file = e.target.files[0];
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("upload_preset", "vhwqxt4l");
 
-      axios({
-        url: "https://api.cloudinary.com/v1_1/dd6rjgngw/image/upload",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-formendcoded",
-        },
-        data: formData,
-      }).then((res) => {
-        formAdd.addEventListener("submit", (e) => {
-          // thêm e vào và dòng dưới để chặn sự kiện(k load trang)
-          e.preventDefault();
+            axios({
+                url: "https://api.cloudinary.com/v1_1/dd6rjgngw/image/upload",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-formendcoded",
+                },
+                data: formData,
+            }).then((res) => {
+                formAdd.addEventListener("submit", (e) => {
+                    // thêm e vào và dòng dưới để chặn sự kiện(k load trang)
+                    e.preventDefault();
 
-          add(
-            {
-              createdAt: document.querySelector('#createdAt-post').value,
-              title: document.querySelector('#title-post').value,
-              img: res.data.secure_url,
-              desc: document.querySelector('#desc-post').value
+                    add(
+                        {
+                            createdAt: document.querySelector('#createdAt-post').value,
+                            name: document.querySelector('#title-post').value,
+                            img: res.data.secure_url,
+                            price: document.querySelector('#price-post').value,
+                            desc: document.querySelector('#desc-post').value
 
+                        })
+                        .then((result) => console.log(result.data))
+                        .catch((error) => console.log(error));
+                });
+                // document.location.href=""
             })
-            .then((result) => console.log(result.data))
-            .then(() => document.location.href = "/admin/news")
-            .catch((error) => console.log(error));
         });
 
-      })
-    });
 
 
-
-  },
+    },
 };
-export default addProduct;
+export default addProductNewProduct;

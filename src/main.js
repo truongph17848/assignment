@@ -8,54 +8,72 @@ import listNewsPage from "./admin/news/list";
 import addProduct from "./admin/news/add";
 import Edit from "./admin/news/edit";
 import Detail from "./pages/Detail";
+import productsPage from "./components/products/index";
+import DetailProduct from "./components/products/detail";
+import CartPage from "./pages/cart";
+import listProductsPage from "./admin/products/list_product";
+import EditProducts from "./admin/products/edit_product";
+import addProductNewProduct from "./admin/products/add_product";
+const router = new Navigo("/", { linksSelector: "a", hash: true });
 
-
-
-const router = new Navigo("/", { linksSelector: "a" });
-
-const print = (content) => {
-    document.getElementById("app").innerHTML = content;
+const print = async (content, id) => {
+    document.getElementById("app").innerHTML = await content.render(id);
+    if (content.afterRender) content.afterRender(id);
 };
 
 router.on({
     "/": () => {
-        print(HomePage.render());
+        print(HomePage);
     },
     "/about": () => {
-        print(AboutPage.render());
+        print(AboutPage);
     },
     "/sigup": () => {
-        print(Sigup.render());
+        print(Sigup);
     },
     "/sigin": () => {
-        print(Sigin.render());
+        print(Sigin);
     },
 
-    "/Detail": () => {
-        print(Detail.render())
+    "/Detail/:id": (value) => {
+        print(Detail, value.data.id)
     },
 
 
-    
+
     "/admin/dashboard": () => {
-        print(dashboard.render())
+        print(dashboard)
     },
 
     "/admin/news": () => {
-        print(listNewsPage.render())
+        print(listNewsPage)
     },
 
     "/admin/news/add": () => {
-        print(addProduct.render())
+        print(addProduct)
     },
 
-    "/admin/news/:id/edit": () => {
-        print(Edit.render())
+    "/admin/news/:id/edit": ({ data }) => {
+        print(Edit, data.id)
     },
-
-
-
-
+    "/products": () => {
+        print(productsPage)
+    },
+    "/products/:id": (value) => {
+        print(DetailProduct, value.data.id)
+    },
+    "/cart": () => {
+        print(CartPage)
+    },
+    "/admin/products": () => {
+        print(listProductsPage)
+    },
+    "/admin/products/:id/EditProducts": ({ data }) => {
+        print(EditProducts, data.id)
+    },
+    "/admin/products/addProductNewProduct": () => {
+        print(addProductNewProduct)
+    },
 
 });
 router.resolve();
