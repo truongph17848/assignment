@@ -5,8 +5,8 @@ import NavAdmin from "../../components/NavAdmin";
 
 
 const addProductNewProduct = {
-    render() {
-        return `
+  render() {
+    return `
             <div class="min-h-full">
             ${NavAdmin.render()}
             <header class="bg-white shadow">
@@ -103,50 +103,51 @@ const addProductNewProduct = {
         </div>
 
             `;
-    },
-    afterRender() {
+  },
+  afterRender() {
 
-        const formAdd = document.querySelector("#form-add-post");
+    const formAdd = document.querySelector("#form-add-post");
 
-        const imgPost = document.querySelector("#img-post");
+    const imgPost = document.querySelector("#img-post");
 
-        imgPost.addEventListener("change", (e) => {
+    imgPost.addEventListener("change", (e) => {
 
-            const file = e.target.files[0];
-            const formData = new FormData();
-            formData.append("file", file);
-            formData.append("upload_preset", "vhwqxt4l");
+      const file = e.target.files[0];
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "vhwqxt4l");
 
-            axios({
-                url: "https://api.cloudinary.com/v1_1/dd6rjgngw/image/upload",
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-formendcoded",
-                },
-                data: formData,
-            }).then((res) => {
-                formAdd.addEventListener("submit", (e) => {
-                    // thêm e vào và dòng dưới để chặn sự kiện(k load trang)
-                    e.preventDefault();
+      axios({
+        url: "https://api.cloudinary.com/v1_1/dd6rjgngw/image/upload",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-formendcoded",
+        },
+        data: formData,
+      }).then((res) => {
+        formAdd.addEventListener("submit", (e) => {
+          // thêm e vào và dòng dưới để chặn sự kiện(k load trang)
+          e.preventDefault();
 
-                    add(
-                        {
-                            createdAt: document.querySelector('#createdAt-post').value,
-                            name: document.querySelector('#title-post').value,
-                            img: res.data.secure_url,
-                            price: document.querySelector('#price-post').value,
-                            desc: document.querySelector('#desc-post').value
+          add(
+            {
+              createdAt: document.querySelector('#createdAt-post').value,
+              name: document.querySelector('#title-post').value,
+              img: res.data.secure_url,
+              price: document.querySelector('#price-post').value,
+              desc: document.querySelector('#desc-post').value
 
-                        })
-                        .then((result) => console.log(result.data))
-                        .catch((error) => console.log(error));
-                });
-                // document.location.href=""
             })
+            .then((result) => console.log(result.data))
+            .then(() => document.location.href = "/admin/products")
+            .catch((error) => console.log(error));
         });
 
+      })
+    });
 
 
-    },
+
+  },
 };
 export default addProductNewProduct;

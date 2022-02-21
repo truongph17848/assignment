@@ -78,7 +78,7 @@ const Sigin = {
 
         });
         localStorage.setItem('user', JSON.stringify(data.user))
-
+        document.location.href = "/admin/news"
       } catch (error) {
         console.log(error.response.data)
       }

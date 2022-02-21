@@ -4,9 +4,9 @@ import { update } from "../../../api/product";
 import axios from "axios";
 
 const EditProducts = {
-    async render(id) {
-        const { data } = await get(id);
-        return `
+  async render(id) {
+    const { data } = await get(id);
+    return `
         ${NavAdmin.render()}    
         <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -90,47 +90,46 @@ const EditProducts = {
 
 
         `;
-    },
+  },
 
-    afterRender(id) {
-        console.log(id);
-        const formEdit = document.querySelector('#form-editProducts-post');
-        console.log(formEdit);
+  afterRender(id) {
+    console.log(id);
+    const formEdit = document.querySelector('#form-editProducts-post');
+    console.log(formEdit);
 
-        const imgPost = document.querySelector("#img-post");
-        imgPost.addEventListener("change", (e) => {
-            e.preventDefault();
-            const file = e.target.file[0];
-            const formData = new formData();
-            formData.append("file", file);
-            formData.append("upload_preset", "vhwqxt4l");
+    const imgPost = document.querySelector("#img-post");
+    imgPost.addEventListener("change", (e) => {
+      e.preventDefault();
+      const file = e.target.file[0];
+      const formData = new formData();
+      formData.append("file", file);
+      formData.append("upload_preset", "vhwqxt4l");
 
-            axios({
-                url: "https://api.cloudinary.com/v1_1/dd6rjgngw/image/upload",
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-formendcoded",
-                },
-                data: formData,
-            }).then((res) => {
-                formEdit.addEventListener('submit', (e) => {
-                    // thêm e vào và dòng dưới để chặn sự kiện(k load trang)
-                    e.preventDefault();
-                    update(
-                        {
-                            id,
-                            createdAt: document.querySelector('#createdAt-post').value,
-                            title: document.querySelector('#title-post').value,
-                            img: res.data.secure_url,
-                            desc: document.querySelector('#desc-post').value
-
-                        })
-                        .then((result) => console.log(result.data))
-                        .catch((error) => console.log(error));
-                });
+      axios({
+        url: "https://api.cloudinary.com/v1_1/dd6rjgngw/image/upload",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-formendcoded",
+        },
+        data: formData,
+      }).then((res) => {
+        formEdit.addEventListener('submit', (e) => {
+          // thêm e vào và dòng dưới để chặn sự kiện(k load trang)
+          e.preventDefault();
+          update(
+            {
+              id,
+              createdAt: document.querySelector('#createdAt-post').value,
+              title: document.querySelector('#title-post').value,
+              img: res.data.secure_url,
+              desc: document.querySelector('#desc-post').value
             })
+            .then((result) => console.log(result.data))
+            .catch((error) => console.log(error));
         });
-    },
+      })
+    });
+  },
 
 };
 export default EditProducts;
