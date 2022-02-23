@@ -1,12 +1,11 @@
-import { getAll, remove } from "../../../api/product";
+import { getAll, remove } from "../../../api/Category"
 import NavAdmin from "../../components/NavAdmin";
-import { reRender } from "../../utils";
 import toastr from "toastr";
-
-const listProductsPage = {
-  async render() {
-    const { data } = await getAll();
-    return `
+import { reRender } from "../../utils";
+const ListCategory = {
+    async render() {
+        const { data } = await getAll();
+        return `
         <div class="min-h-full">
         ${NavAdmin.render()}
         <header class="bg-white shadow">
@@ -17,14 +16,14 @@ const listProductsPage = {
                 <h2
                 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"
                 >
-                Quản lý Sản Phẩm
+                Quản lý bài viết
                 </h2>
             </div>
 
 
 
             <div class="mt-5 flex lg:mt-0 lg:ml-4">
-                <a href="/admin/products/addProductNewProduct" class="sm:ml-3">
+                <a href="/admin/categorys/AddCatagory" class="sm:ml-3">
                     <button
                         type="button"  
                         class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -61,20 +60,9 @@ const listProductsPage = {
                       <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Id
                       </th>
+
                       <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      name
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Image
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      price
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Desc
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      categoryId
+                      Category
                       </th>
                       <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Edit</span>
@@ -85,14 +73,11 @@ const listProductsPage = {
                     <body>
                     ${data.map((post, index) => `
                     <tr>
-                    <td>${index + 1}</td>
-                    <td>${post.name}</td>
-                    <td> <img src="${post.img}" width="50" /> </td>
-                    <td>${post.price}</td>
-                    <td>${post.desc}</td>
-                    <td>${post.categoryId}</td>
+                    <td scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">${index + 1}</td>
+
+                    <td scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">${post.category}</td>
                     <td>
-                    <button class="text-black-300 hover:bg-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium"> <a href="/admin/products/${post.id}/EditProducts"> Edit </a> </button>
+                    <button class="text-black-300 hover:bg-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium"> <a href="/admin/categorys/${post.id}/edit"> Edit </a> </button>
                     <button data-id=${post.id} class="btn btn-remove text-black-300 hover:bg-orange-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium"> Remove </button>
                     </td>
                   </tr>
@@ -115,25 +100,25 @@ const listProductsPage = {
         </div >
         </main >
     </div >
-  `;
-  },
-  afterRender() {
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-      // dataset lấy giá trị của data-id lúc gán ở button
-      const id = button.dataset.id;
+        
+        `;
+    },
 
-      // lick lấy id 
-      button.addEventListener('click', () => {
-        console.log(id);
-        const confirm = window.confirm(" Bạn có chắc muốn xóa nó không ");
-        if (confirm) {
-          remove(id).then(() => toastr.success("Bạn đã xóa sản phẩm thành công"));
-          reRender(listProductsPage, "#app");
-        }
-      })
-    });
-  }
+    afterRender() {
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(button => {
+            // dataset lấy giá trị của data-id lúc gán ở button
+            const id = button.dataset.id;
+            // lick lấy id 
+            button.addEventListener('click', () => {
+                console.log(id);
+                const confirm = window.confirm(" Xóa nhanh không thì bảo");
+                if (confirm) {
+                    remove(id).then(() => toastr.success("Bạn đã xóa sản phẩm thành công"));
+                    reRender(ListCategory, "#app");
+                }
+            })
+        });
+    }
 };
-export default listProductsPage;
-
+export default ListCategory;

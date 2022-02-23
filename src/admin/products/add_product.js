@@ -1,11 +1,13 @@
 import axios from "axios";
+import { getAll } from "../../../api/Category";
 import { add } from "../../../api/product";
 import NavAdmin from "../../components/NavAdmin";
 
 
 
 const addProductNewProduct = {
-  render() {
+  async render() {
+    const { data } = await getAll();
     return `
             <div class="min-h-full">
             ${NavAdmin.render()}
@@ -43,16 +45,12 @@ const addProductNewProduct = {
                     <form class="mt-8 space-y-6" action="" id="form-add-post">
 
                     <div class="rounded-md shadow-sm -space-y-px">
-                      <div>
-                        <label for="createdAt" class="sr-only"> Tên sản phẩm </label>
-                        <input type="text" id="createdAt-post"
-                        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Tên sản phẩm">
-                      </div>
+
                 
                       <div>
-                        <label for="title" class="sr-only"> title </label>
-                        <input id="title-post"
-                        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="title">
+                        <label for="name" class="sr-only"> name </label>
+                        <input id="name-post"
+                        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="name">
                       </div>
                 
                       <input type="file"  
@@ -69,12 +67,20 @@ const addProductNewProduct = {
                     </div>
 
                     <div>
-                    <label for="desc" class="sr-only">price</label>
+                    <label for="price" class="sr-only">price</label>
                     <input id="price-post"
                     class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="price">
                   </div>
-            
-                
+
+
+                <div>
+                <label for="categoryId" class="sr-only">category:</label>
+                  <select name="" id="categoryId">
+                  ${data.map((post, index) => `
+                  <option value="${post.category}">${post.category}</option>
+                  `).join("")}
+                  </select>
+                </div>
                 
                 
                     <div>
@@ -107,8 +113,10 @@ const addProductNewProduct = {
   afterRender() {
 
     const formAdd = document.querySelector("#form-add-post");
-
     const imgPost = document.querySelector("#img-post");
+
+
+
 
     imgPost.addEventListener("change", (e) => {
 
@@ -116,6 +124,7 @@ const addProductNewProduct = {
       const formData = new FormData();
       formData.append("file", file);
       formData.append("upload_preset", "vhwqxt4l");
+
 
       axios({
         url: "https://api.cloudinary.com/v1_1/dd6rjgngw/image/upload",
@@ -131,11 +140,11 @@ const addProductNewProduct = {
 
           add(
             {
-              createdAt: document.querySelector('#createdAt-post').value,
-              name: document.querySelector('#title-post').value,
+              name: document.querySelector('#name-post').value,
               img: res.data.secure_url,
               price: document.querySelector('#price-post').value,
-              desc: document.querySelector('#desc-post').value
+              desc: document.querySelector('#desc-post').value,
+              categoryId: document.querySelector('#categoryId').value
 
             })
             .then((result) => console.log(result.data))

@@ -34,77 +34,25 @@
       "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645419881/vhwqxt4l/ggsshaourdpzbuof274p.jpg",
       "desc": "123",
       "id": 5
-    },
-    {
-      "createdAt": "2022-02-02",
-      "title": "123",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645421860/vhwqxt4l/vmaqn2qu91k6fjziekz8.jpg",
-      "desc": "253454",
-      "id": 6
-    },
-    {
-      "createdAt": "2022-02-05",
-      "title": "Ok",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645421871/vhwqxt4l/yuwylcxauvxyqe3uiq4o.jpg",
-      "desc": "3123124",
-      "id": 7
-    },
-    {
-      "createdAt": "2022-02-04",
-      "title": "13213",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645421881/vhwqxt4l/hmxvqqtbwu4fy6rdzpsr.jpg",
-      "desc": "213",
-      "id": 8
     }
   ],
   "products": [
     {
-      "createdAt": "ÁO SƠ MI NAM TAY DÀI SP000957 - CARO XANH NHẠT",
-      "name": "product B",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645259189/vhwqxt4l/xtwcupl6bcjfnzayh4jz.jpg",
-      "desc": "ÁO SƠ MI NAM TAY DÀI SP000957 - NÂU",
-      "id": 6,
-      "price": "200"
-    },
-    {
-      "createdAt": "ÁO SƠ MI NAM TAY DÀI SP000957 - CARO XANH NHẠT",
-      "name": "product C",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645259219/vhwqxt4l/yjzfgpdzknbdaxjkegey.jpg",
-      "desc": "ÁO SƠ MI NAM TAY DÀI SP000957 - NÂU",
-      "id": 7,
-      "price": "300"
-    },
-    {
-      "createdAt": "123123",
-      "name": "Ok",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645413759/vhwqxt4l/y81hguvzru08g0qfo59q.jpg",
-      "price": "200",
-      "desc": "213",
-      "id": 8
-    },
-    {
       "createdAt": "123123",
       "name": "123",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645420103/vhwqxt4l/zldrdb6teozoqqnaf8xh.jpg",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645549813/vhwqxt4l/pwpykks5v4gpyjuhuxtj.jpg",
       "price": "200",
       "desc": "123",
-      "id": 9
+      "categoryId": "áo lông bò",
+      "id": 14
     },
     {
-      "createdAt": "ao name",
-      "name": "Ok",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645421959/vhwqxt4l/vdxahltmx0e8ha3c4ip7.jpg",
+      "name": "áo màu hồng",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645581277/vhwqxt4l/es8sxkqvbkxydixzfodm.jpg",
       "price": "200",
-      "desc": "213",
-      "id": 10
-    },
-    {
-      "createdAt": "sản phẩm D",
-      "name": "123",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645421974/vhwqxt4l/u6f81mu84k23xsahjnvb.jpg",
-      "price": "200",
-      "desc": "213",
-      "id": 11
+      "desc": "123",
+      "categoryId": "áo khoác",
+      "id": 15
     }
   ],
   "users": [
@@ -123,6 +71,24 @@
       "email": "truong123123123@gmail.com",
       "password": "$2a$10$xRU.Yyqfj8LIGmxlDTvOZeDJfhZbWqr8pPsqr.zTz00uXnPbksgcO",
       "username": "truong123123123",
+      "id": 3
+    }
+  ],
+  "categorys": [
+    {
+      "id": 1,
+      "category": "áo phông"
+    },
+    {
+      "id": 2,
+      "category": "áo vải"
+    },
+    {
+      "id": 2,
+      "category": "áo khoác"
+    },
+    {
+      "category": "áo lông bò",
       "id": 3
     }
   ]

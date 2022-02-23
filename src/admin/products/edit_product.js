@@ -41,14 +41,14 @@ const EditProducts = {
 
                 <div class="rounded-md shadow-sm -space-y-px">
                   <div>
-                    <label for="createdAt" class="sr-only">createdAt</label>
-                    <input id="createdAt-post" value="${data.createdAt}"
-                    class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="createdAt">
+                    <label for="createdAt" class="sr-only">name</label>
+                    <input id="name-post" value="${data.name}"
+                    class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name">
                   </div>
             
                   <div>
-                    <label for="title" class="sr-only">title</label>
-                    <input id="title-post" value="${data.name}"
+                    <label for="desc" class="sr-only">desc</label>
+                    <input id="desc-post" value="${data.desc}"
                     class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="title">
                   </div>
             
@@ -58,9 +58,9 @@ const EditProducts = {
                   </div>
             
                   <div>
-                    <label for="desc" class="sr-only">desc</label>
-                    <input id="desc-post" value="${data.price}"
-                    class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="desc">
+                    <label for="price" class="sr-only">price</label>
+                    <input id="price-price" value="${data.price}"
+                    class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="price">
                   </div>
             
                 </div>
@@ -119,10 +119,10 @@ const EditProducts = {
           update(
             {
               id,
-              createdAt: document.querySelector('#createdAt-post').value,
-              title: document.querySelector('#title-post').value,
+              name: document.querySelector('#name-post').value,
+              desc: document.querySelector('#desc-post').value,
               img: res.data.secure_url,
-              desc: document.querySelector('#desc-post').value
+              price: document.querySelector('#price-post').value
             })
             .then((result) => console.log(result.data))
             .catch((error) => console.log(error));

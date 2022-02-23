@@ -14,6 +14,10 @@ import CartPage from "./pages/cart";
 import listProductsPage from "./admin/products/list_product";
 import EditProducts from "./admin/products/edit_product";
 import addProductNewProduct from "./admin/products/add_product";
+import ListCategory from "./admin/Category/list_Category";
+import AddCatagory from "./admin/Category/add_Category";
+
+
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
 const print = async (content, id) => {
@@ -74,6 +78,15 @@ router.on({
     "/admin/products/addProductNewProduct": () => {
         print(addProductNewProduct)
     },
+    "/admin/categorys": () => {
+        print(ListCategory)
+    },
+    "/admin/categorys/AddCatagory": () => {
+        print(AddCatagory)
+    },
+
+
+
 
 });
 router.resolve();
