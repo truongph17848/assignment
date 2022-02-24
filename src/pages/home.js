@@ -9,6 +9,10 @@ const HomePage = {
         return /* html */`
             <div class="">
             ${Header.render()}
+            </div>
+
+            <div class="banner">
+            ${Banner.render()}
             <div>
                 ${await NewsList.render()}
             </div>

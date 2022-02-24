@@ -16,7 +16,7 @@ const ListCategory = {
                 <h2
                 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"
                 >
-                Quản lý bài viết
+                Quản lý danh mục
                 </h2>
             </div>
 

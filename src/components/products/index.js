@@ -2,11 +2,11 @@ import { getAll } from '../../../api/product';
 import Header from '../header';
 
 const productsPage = {
-    async render() {
-        // Chờ thằng axios.get truy cập API và lấy dữ liệu, 
-        // lấy dữ liệu xong sẽ trả về và gán vào biến response
-        const { data } = await getAll();
-        return  /* html */`
+  async render() {
+    // Chờ thằng axios.get truy cập API và lấy dữ liệu, 
+    // lấy dữ liệu xong sẽ trả về và gán vào biến response
+    const { data } = await getAll();
+    return  /* html */`
 
         ${Header.render()}
         <div class="bg-white">
@@ -20,37 +20,36 @@ const productsPage = {
             <div class="border p-4">
               <div
                 class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                <a href="/#/products/${product.id}">
-                            <img src="${product.img}" alt="" />
+                    <a href="/#/products/${product.id}">
+                    <img src="${product.img}" alt="" />
+                    </a>
+                           
                   alt="Front of men&#039;s Basic Tee in black."
                   class="w-full h-full object-center object-cover lg:w-full lg:h-full">
               </div>
               <div class="mt-4 flex justify-between">
+
                 <div>
                   <h3 class="text-sm text-gray-700">
-                    <a href="/#/products/${product.id}">
-                      <span aria-hidden="true" class="absolute inset-0"></span>
                       ${product.name}
-                    </a>
                   </h3>
 
-                  <a href="/#/products/${product.id}">
                   <p class="mt-1 text-sm text-gray-500">${product.desc}</p>
+
                 </div>
                 <p class="text-sm font-medium text-gray-900">${product.price}$</p>
               </div>
-              </a>
+              
             </div>
 
             `).join("")}
     
-            <!-- More products... -->
           </div>
         </div>
       </div>
 
         
         `;
-    },
+  },
 };
 export default productsPage;

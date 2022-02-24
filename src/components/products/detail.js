@@ -5,9 +5,9 @@ import "toastr/build/toastr.min.css";
 import Header from '../header';
 
 const DetailProduct = {
-    async render(id) {
-        const { data } = await get(id);
-        return `
+  async render(id) {
+    const { data } = await get(id);
+    return `
 
         ${Header.render()}
         <div class="bg-white">
@@ -300,20 +300,20 @@ const DetailProduct = {
 
 
         `;
-    },
+  },
 
-    afterRender(id) {
-        const btnAddTocart = document.querySelector('#btnAddTocart');
-        const inputValue = document.querySelector('#inputValue');
-        btnAddTocart.addEventListener('click', async () => {
-            const { data } = await get(id);
-            addToCart({ ...data, quantity: inputValue.value ? +inputValue.value : 1 }, function () {
-                toastr.success("Thêm vào giỏ hàng thành công!");
-            })
+  afterRender(id) {
+    const btnAddTocart = document.querySelector('#btnAddTocart');
+    const inputValue = document.querySelector('#inputValue');
+    btnAddTocart.addEventListener('click', async () => {
+      const { data } = await get(id);
+      addToCart({ ...data, quantity: inputValue.value ? +inputValue.value : 1 }, function () {
+        toastr.success("Thêm vào giỏ hàng thành công!");
+      })
 
-        })
+    })
 
-    }
+  }
 
 
 };

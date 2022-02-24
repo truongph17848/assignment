@@ -1,11 +1,11 @@
 {
   "posts": [
     {
-      "createdAt": "2022-02-21",
-      "title": "Sản Phẩm Mới",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645413963/vhwqxt4l/czybzkqmbnhhnoh6hnuc.jpg",
-      "desc": "1312312",
-      "id": 1
+      "id": 1,
+      "createdAt": "truong 123",
+      "title": "truong 123",
+      "desc": "truong 123",
+      "img": "http://res.cloudinary.com/ecommercer2021/image/upload/v1645692285/wghybzgxxcfcxciucwb1.jpg"
     },
     {
       "createdAt": "2022-02-21",
@@ -15,44 +15,53 @@
       "id": 2
     },
     {
-      "createdAt": "2022-02-21",
-      "title": "Ok",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645417620/vhwqxt4l/jdkhcm0wr5keldx5ahuv.jpg",
-      "desc": "123",
-      "id": 3
-    },
-    {
-      "createdAt": "2022-02-02",
+      "createdAt": "2022-02-18",
       "title": "123",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645419848/vhwqxt4l/zf8n22uko7squn860ymy.jpg",
-      "desc": "1312312 update",
-      "id": 4
-    },
-    {
-      "createdAt": "2022-02-03",
-      "title": "12453",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645419881/vhwqxt4l/ggsshaourdpzbuof274p.jpg",
-      "desc": "123",
-      "id": 5
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645693806/vhwqxt4l/b7ia9quahna1kopuerxq.jpg",
+      "desc": "1312312",
+      "id": 3
     }
   ],
   "products": [
     {
-      "createdAt": "123123",
-      "name": "123",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645549813/vhwqxt4l/pwpykks5v4gpyjuhuxtj.jpg",
+      "id": 2,
+      "name": "áo màu naau",
       "price": "200",
       "desc": "123",
-      "categoryId": "áo lông bò",
-      "id": 14
+      "categoryId": "áo phông",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645595852/vhwqxt4l/kyxei95pxxuwaxeonfma.jpg"
     },
     {
       "name": "áo màu hồng",
-      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645581277/vhwqxt4l/es8sxkqvbkxydixzfodm.jpg",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645597249/vhwqxt4l/nyazdxvm5ofln8cxbabn.jpg",
       "price": "200",
       "desc": "123",
+      "categoryId": "áo lông bò",
+      "id": 3
+    },
+    {
+      "name": "áo màu do",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645597259/vhwqxt4l/z5pqgo41z8mmgb4jtu29.jpg",
+      "price": "200",
+      "desc": "213",
       "categoryId": "áo khoác",
-      "id": 15
+      "id": 4
+    },
+    {
+      "name": "áo đen hồng",
+      "img": "https://res.cloudinary.com/dd6rjgngw/image/upload/v1645605352/vhwqxt4l/umnu1rnpzeeuhjghigac.jpg",
+      "price": "2002",
+      "desc": "123123",
+      "categoryId": "áo khoác",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "name": "áo màu naau8888",
+      "price": "2008888",
+      "desc": "1312312tr888",
+      "categoryId": "áo khoác",
+      "img": "http://res.cloudinary.com/ecommercer2021/image/upload/v1645694791/rtvln3tkcw4pefsk8giv.jpg"
     }
   ],
   "users": [
@@ -90,6 +99,10 @@
     {
       "category": "áo lông bò",
       "id": 3
+    },
+    {
+      "category": "áo lông cừu",
+      "id": 4
     }
   ]
 }

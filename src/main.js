@@ -83,7 +83,7 @@ router.on({
     },
     "/admin/categorys/AddCatagory": () => {
         print(AddCatagory)
-    },
+    }
 
 
 
